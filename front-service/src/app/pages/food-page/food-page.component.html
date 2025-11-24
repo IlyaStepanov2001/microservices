@@ -1,0 +1,30 @@
+<h1 class="font-bold mb-2 text-center text-lg">{{title | titlecase}}</h1>
+
+<input
+  type="text"
+  class="mb-2 border py-2 px-4 w-full"
+  placeholder="Фильтр еды..."
+  [(ngModel)]="term"
+>
+<p *ngIf="loading" class="text-center text-lg ">Загрузка...</p>
+
+<div *ngIf="foodService.food">
+  <app-food
+    *ngFor="let food of foodService.food | filterFood: term"
+    [food]="food"
+  >
+  </app-food>
+</div>
+
+<app-modal *ngIf="modalService.isCreate" title="Новый еда">
+  <app-create-product></app-create-product>
+</app-modal>
+<app-modal *ngIf="modalService.isEdit" title="Редактировать еду">
+  <app-create-product></app-create-product>
+</app-modal>
+
+<button
+  class="rounded-full w-16 h-16 bg-green-600 text-white text-3xl fixed right-5 bottom-5 py-2 px-4"
+  (click)="modalService.isCreate = true"
+>+</button>
+

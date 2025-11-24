@@ -1,0 +1,30 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="name">Название</label>
+    <input id="name" type="text" formControlName="name" placeholder="Введите название еды" appFocus required>
+
+    <label for="calories">Энерг. ценность (ккал)</label>
+    <input id="calories" type="number" formControlName="calories" appFocus/>
+
+    <label for="protein">Белок (г)</label>
+    <input id="protein" type="number" formControlName="protein" appFocus/>
+
+    <label for="fat">Жиры (г)</label>
+    <input id="fat" type="number" formControlName="fat" appFocus/>
+
+    <label for="carbohydrate">Углеводы (г)</label>
+    <input id="carbohydrate" type="number" formControlName="carbohydrate" appFocus/>
+
+    <p
+      class="text-red-600 font-medium mb-2"
+      *ngIf="title.errors?.minlength && title.touched"
+    >Заполните поле минимальным количеством букв. Осталось {{ 6 - title.value.length }}.
+    </p>
+
+    <button
+      type="submit"
+      class="py-2 px-4 mt-3 bg-green-600 text-white"
+    >{{ this.modalService.isEdit ? 'Сохранить' : 'Добавить' }}
+    </button>
+  </div>
+</form>

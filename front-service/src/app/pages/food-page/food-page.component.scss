@@ -1,0 +1,5 @@
+$primary-color: #4CAF50;
+
+button:hover {
+  background-color: darken($primary-color, 10%);
+}

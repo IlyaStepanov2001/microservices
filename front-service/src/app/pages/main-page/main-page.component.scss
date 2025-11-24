@@ -1,0 +1,35 @@
+$primary-color: #4CAF50;
+$secondary-color: #f1f1f1;
+$accent-color: #333;
+$form-background: #fff;
+$button-background: $primary-color;
+$button-text-color: #fff;
+$border-radius: 5px;
+$input-padding: 12px;
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+button{
+  width: 100%;
+  padding: 12px;
+  margin-top: 100px;
+  background-color: $primary-color;
+  color: $button-text-color;
+  border: none;
+  border-radius: $border-radius;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: darken($primary-color, 10%);
+}

@@ -1,0 +1,23 @@
+/* styles.css */
+
+/* Установка базовых стилей для всего приложения */
+body {
+  font-family: 'Roboto', sans-serif;  /* Шрифт по умолчанию */
+  background-color: #3f51b5         /* Фоновый цвет */
+}
+
+/* Стиль для компонента с mat-form-field */
+mat-form-field {
+  width: 100%; /* Полная ширина */
+}
+
+mat-form-field {
+  display: block;
+  width: 100%;
+}
+
+/* Дополнительные стили для вашего приложения */
+h1 {
+  text-align: center;
+  color: #3f51b5;
+}

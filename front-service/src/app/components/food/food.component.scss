@@ -1,0 +1,42 @@
+$primary-color: #4CAF50;
+$secondary-color: #f1f1f1;
+$accent-color: #333;
+$form-background: #fff;
+$button-background: $primary-color;
+$button-text-color: #fff;
+$border-radius: 5px;
+$input-padding: 12px;
+
+button{
+  padding: 12px;
+  //margin-top: 100px;
+  background-color: $primary-color;
+  color: $button-text-color;
+  border: none;
+  border-radius: $border-radius;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: darken($primary-color, 10%);
+}
+
+.btn-del {
+  background-image: url('assets/delete.png');
+  background-color: white;
+}
+
+.btn-edit {
+  background-image: url('assets/edit.png');
+  background-color: white;
+}
+
+.btn-edit:hover {
+  background-color: lightblue;
+}
+.btn-del:hover {
+  background-color: lightcoral;
+
+}

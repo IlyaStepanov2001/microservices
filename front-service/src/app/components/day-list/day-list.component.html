@@ -1,0 +1,106 @@
+<!--  <mat-form-field appearance="fill">-->
+<!--    <mat-label>Выберите дату</mat-label>-->
+<!--    <input matInput [matDatepicker]="picker" (dateChange)="onDateChange($event)" [value]="selectedDate">-->
+<!--    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>-->
+<!--    <mat-datepicker #picker></mat-datepicker>-->
+<!--  </mat-form-field>-->
+
+<!--<div *ngIf="selectedDay">-->
+<!--  <h3>{{ selectedDate }} - День пользователя {{ userId }}</h3>-->
+
+<!--&lt;!&ndash;   Завтрак&ndash;&gt;-->
+<!--  <h4>Завтрак</h4>-->
+<!--&lt;!&ndash;  <form [formGroup]="breakfastForm">&ndash;&gt;-->
+<!--    <label for="bfFoodId">Продукт</label>-->
+<!--    <input id="bfFoodId" formControlName="bfFoodId" placeholder="ID продукта">-->
+<!--    <label for="bfQuantity">Количество</label>-->
+<!--    <input id="bfQuantity" formControlName="bfQuantity" placeholder="Количество">-->
+<!--    <button type="button" (click)="updateMealFood(selectedDay.id, breakfastForm)">Обновить</button>-->
+<!--  </form>-->
+
+<!--  &lt;!&ndash; Обед &ndash;&gt;-->
+<!--  <h4>Обед</h4>-->
+<!--  <form [formGroup]="lunchForm">-->
+<!--    <label for="lFoodId">Продукт</label>-->
+<!--    <input id="lFoodId" formControlName="lFoodId" placeholder="ID продукта">-->
+<!--    <label for="lQuantity">Количество</label>-->
+<!--    <input id="lQuantity" formControlName="lQuantity" placeholder="Количество">-->
+<!--    <button type="button" (click)="updateMealFood(selectedDay.id, lunchForm)">Обновить</button>-->
+<!--  </form>-->
+
+<!--  &lt;!&ndash; Ужин &ndash;&gt;-->
+<!--  <h4>Ужин</h4>-->
+<!--  <form [formGroup]="dinnerForm">-->
+<!--    <label for="dFoodId">Продукт</label>-->
+<!--    <input id="dFoodId" formControlName="dFoodId" placeholder="ID продукта">-->
+<!--    <label for="dQuantity">Количество</label>-->
+<!--    <input id="dQuantity" formControlName="dQuantity" placeholder="Количество">-->
+<!--    <button type="button" (click)="updateMealFood(selectedDay.id, dinnerForm)">Обновить</button>-->
+<!--  </form>-->
+<!--</div>-->
+
+<h4>Список дней</h4>
+
+<!-- Выбор дня -->
+<div *ngIf="days.length > 0 || selectedDay">
+  <mat-form-field appearance="fill">
+    <mat-label>Выберите дату</mat-label>
+    <input matInput [matDatepicker]="picker" (dateChange)="onDateChange($event)">
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+</div>
+
+<!-- Если нет дней в базе, показываем форму для ввода нового дня -->
+<div *ngIf="days.length === 0 && !selectedDay">
+  <h5>Введите новый день:</h5>
+  <mat-form-field appearance="fill">
+    <mat-label>Дата</mat-label>
+    <input matInput [(ngModel)]="selectedDate" (ngModelChange)="onDateChange($event)" [matDatepicker]="picker" />
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <button (click)="saveNewDay()">Создать новый день</button>
+</div>
+
+<!-- Если выбран день, показываем формы для приёмов пищи -->
+<div *ngIf="selectedDay">
+  <h5>Выбранный день: {{ selectedDay.date }}</h5>
+
+  <!-- Форма для завтрака -->
+  <div>
+    <h6>Завтрак</h6>
+    <form [formGroup]="breakfastForm">
+      <label for="bfFoodId">Продукт</label>
+      <input id="bfFoodId" formControlName="foodId" placeholder="ID продукта">
+      <label for="bfQuantity">Количество</label>
+      <input id="bfQuantity" formControlName="quantity" placeholder="Количество">
+      <button type="button" (click)="updateMealFood(selectedDay.id, breakfastForm)">Обновить</button>
+    </form>
+  </div>
+
+  <!-- Форма для обеда -->
+  <div>
+    <h6>Обед</h6>
+    <form [formGroup]="lunchForm">
+      <label for="lunchFoodId">Продукт</label>
+      <input id="lunchFoodId" formControlName="foodId" placeholder="ID продукта">
+      <label for="lunchQuantity">Количество</label>
+      <input id="lunchQuantity" formControlName="quantity" placeholder="Количество">
+      <button type="button" (click)="updateMealFood(selectedDay.id, lunchForm)">Обновить</button>
+    </form>
+  </div>
+
+  <!-- Форма для ужина -->
+  <div>
+    <h6>Ужин</h6>
+    <form [formGroup]="dinnerForm">
+      <label for="dinnerFoodId">Продукт</label>
+      <input id="dinnerFoodId" formControlName="foodId" placeholder="ID продукта">
+      <label for="dinnerQuantity">Количество</label>
+      <input id="dinnerQuantity" formControlName="quantity" placeholder="Количество">
+      <button type="button" (click)="updateMealFood(selectedDay.id, dinnerForm)">Обновить</button>
+    </form>
+  </div>
+</div>
+
+
+

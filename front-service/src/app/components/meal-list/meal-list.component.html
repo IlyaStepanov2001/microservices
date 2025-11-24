@@ -1,0 +1,6 @@
+<div *ngFor="let meal of meals">
+  <div>
+    <h4>{{ meal.mealType }}</h4>
+    <app-meal-food-list [mealId]="meal.id"></app-meal-food-list>
+  </div>
+</div>

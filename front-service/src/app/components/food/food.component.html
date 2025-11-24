@@ -1,0 +1,28 @@
+<div class="py-4 px-6 border rounded flex items-center flex-col mb-2">
+<!--  <img [src]="food.image" [alt]="product.title" class="w-1/6 mb-2">-->
+  <h2 class="mb-2 text-md text-center">{{ food.name }}</h2>
+  <p>Калорийность: <span class="font-bold">{{ food.calories }} ккал</span></p>
+
+  <button
+    class="border py-2 px-4 rounded mt-4 mb-2"
+    (click)="details = !details">
+<!--    [ngClass]="{-->
+<!--      '#4CAF50': details,-->
+<!--      'bg-black-400': !details-->
+<!--    }"-->
+    {{details ? 'Скрыть' : 'Показать'}} БЖУ
+  </button>
+  <div *ngIf="details">
+    <p>Белки: {{ food.protein }} г</p>
+    <p>Жиры: {{ food.fat }} г</p>
+    <p>Углеводы: {{ food.carbohydrate }} г</p>
+  </div>
+  <span>
+    <button class="btn-edit" (click)="editBtn(food)">
+      <img src="assets/edit.png">
+    </button>
+    <button class="btn-del" (click)="delete(food)">
+      <img src="assets/delete.png">
+    </button>
+  </span>
+</div>

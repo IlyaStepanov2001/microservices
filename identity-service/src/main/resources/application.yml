@@ -1,0 +1,33 @@
+server:
+  port: 9002
+
+spring:
+  application:
+    name: identity-service
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: 98534323
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
+        web:
+          filter: DEBUG
+
+eureka:
+  client:
+    service-url:
+      defaultZone : http://localhost:8761/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+
+jwt:
+  secret: 35a85bde01ad63afd1669e30d09d74a78f84d9ced2f7eecd9e45a819438c030f
+  expiration: 3600000
+

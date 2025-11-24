@@ -1,0 +1,37 @@
+<div class="form-container">
+  <div class="form-toggle">
+    <button (click)="isLogin = true" [class.active]="isLogin">Вход</button>
+    <button (click)="isLogin = false" [class.active]="!isLogin">Регистрация</button>
+  </div>
+
+  <!-- Форма Логина -->
+  <form *ngIf="isLogin" [formGroup]="loginForm" (ngSubmit)="onLogin()">
+    <label for="login-username">Имя пользователя:</label>
+    <input id="login-username" type="username" formControlName="username" placeholder="Введите имя пользователя" required />
+
+    <label for="login-email">Email:</label>
+    <input id="login-email" type="email" formControlName="email" placeholder="Введите ваш email" required />
+
+    <label for="login-password">Пароль:</label>
+    <input id="login-password" type="password" formControlName="password" placeholder="Введите ваш пароль" required />
+
+    <button type="submit" [disabled]="loginForm.invalid">Войти</button>
+  </form>
+
+  <!-- Форма Регистрации -->
+  <form *ngIf="!isLogin" [formGroup]="registerForm" (ngSubmit)="onRegister()">
+    <label for="register-username">Имя пользователя:</label>
+    <input id="register-username" type="username" formControlName="username" placeholder="Введите имя пользователя" required />
+
+    <label for="register-email">Email:</label>
+    <input id="register-email" type="email" formControlName="email" placeholder="Введите ваш email" required />
+
+    <label for="register-password">Пароль:</label>
+    <input id="register-password" type="password" formControlName="password" placeholder="Введите ваш пароль" required />
+
+    <label for="register-confirm-password">Подтвердите пароль:</label>
+    <input id="register-confirm-password" type="password" formControlName="confirmPassword" placeholder="Подтвердите пароль" required />
+
+    <button type="submit" [disabled]="registerForm.invalid">Зарегистрироваться</button>
+  </form>
+</div>

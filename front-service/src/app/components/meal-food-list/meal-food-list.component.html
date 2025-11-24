@@ -1,0 +1,12 @@
+<div *ngIf="mealFoods.length > 0; else noProducts">
+  <ul>
+    <li *ngFor="let mealFood of mealFoods">
+      <span>Продукт ID: {{ mealFood.foodId }}, Количество: {{ mealFood.quantity }}</span>
+      <button (click)="deleteMealFood(mealFood.id)" class="delete-btn">Удалить</button>
+    </li>
+  </ul>
+</div>
+
+<ng-template #noProducts>
+  <p>Продукты для этого приема пищи не добавлены.</p>
+</ng-template>

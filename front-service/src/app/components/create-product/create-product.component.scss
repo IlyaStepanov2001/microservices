@@ -1,0 +1,52 @@
+$primary-color: #4CAF50;
+$secondary-color: #f1f1f1;
+$accent-color: #333;
+$form-background: #fff;
+$button-background: $primary-color;
+$button-text-color: #fff;
+$border-radius: 5px;
+$input-padding: 12px;
+
+button:hover {
+  background-color: darken($primary-color, 10%);
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.form-container {
+  width: 100%;
+  max-width: 400px;
+  background-color: $form-background;
+  padding: 20px;
+  margin-left: 150px;
+  margin-top: 65px;
+  border-radius: $border-radius;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: $accent-color;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="password"] {
+  width: 100%;
+  padding: $input-padding;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: $border-radius;
+  font-size: 14px;
+  box-sizing: border-box;
+}
